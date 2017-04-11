@@ -1,0 +1,91 @@
+/* Layout Styles */
+#master-wrapper {
+	width: 95%;
+	overflow: auto;
+	padding: 2.5%;
+}
+
+header {
+	margin-bottom: 2%;
+	width: 100%;
+}
+nav ul li {
+	display: inline-block;
+	padding: 0 5px;
+}
+
+aside {
+	float: left;
+	width: 15%;
+	height: 500px;
+	display: inline-block;
+	margin: 0;
+	padding: 1%;
+}
+.genreSelect {
+	display: inline;
+	font-size: .7em;
+}
+section {
+	width: 75%;
+	height: 500px;
+	float: right;
+	display: inline-block;
+	margin: 0;
+	padding: 1% 2.5%;
+}
+section p {
+	display: inline-block;
+	padding: 0 5px;
+}
+.dividers {
+	border-right: 2px solid black;
+	border-left: 2px solid black;
+}
+label {
+	display: block;
+	max-width: 100%;
+	margin: 5px 0;
+}
+input {
+	max-width: 100%;
+}
+select {
+	width: 100%;
+	margin: 5px 0;
+}
+#checkboxCol1 {
+	margin-left: -2px;
+	float: left;
+	width: 50%;
+}
+#checkboxCol2 {
+	margin-left: -2px;
+	float: right;
+	width: 50%;
+}
+#btn-filter {
+	margin: 10px 25%;
+	width: 50%;
+}
+
+
+/* Color Styles */
+header {
+	background-color: #FFB4B0;
+	border: 2px solid black;
+}
+
+section {
+	background-color: #FEFAC0;
+	border: 2px solid black;
+}
+section h2 {
+	color: #785616;
+}
+
+aside {
+	background-color: #4DD7FA;
+	border: 2px solid black;
+}
+

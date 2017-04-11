@@ -2,12 +2,95 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Music History</title>
+ 	<meta charset="utf-8">
+ 	<title>Music History</title>
+<!-- Styles 'n Stuff-->
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-
-
+<!-- Master Wrapper -->
+	<div id="master-wrapper">
+<!-- Header -->
+	<header>
+		<nav>
+			<ul>
+				<li>View Music</li>
+				<li class="dividers">Add Music</li>
+				<li>Profile</li>
+			</ul>
+		</nav>
+	</header>
+<!-- /Header -->
+<!-- Main Section-->
+	<section>
+<!-- -->
+		<h2>Song Name</h2>
+		<p>Artist Name</p>
+		<p class = "dividers">Album Name</p>
+		<p>Genre</p>
+<!-- -->
+<!-- -->
+		<h2>Song Name</h2>
+		<p>Artist Name</p>
+		<p class = "dividers">Album Name</p>
+		<p>Genre</p>
+<!-- -->
+<!-- -->
+		<h2>Song Name</h2>
+		<p>Artist Name</p>
+		<p class = "dividers">Album Name</p>
+		<p>Genre</p>
+<!-- -->
+<!-- -->
+		<h2>Song Name</h2>
+		<p>Artist Name</p>
+		<p class = "dividers">Album Name</p>
+		<p>Genre</p>
+<!-- -->
+	</section>
+<!-- /Main Section-->
+<!-- Side Bar-->
+	<aside>
+		<label for="songLength">Song Length:</label>
+		<input id="songLength" type="range">
+		<label for="artist">Artist:</label>
+		<select id="artist">
+			<option>Options</option>
+			<option>Options</option>
+			<option>Options</option>
+		</select>
+		<label for="album">Album:</label>
+		<select id="ablum">
+			<option>Options</option>
+			<option>Options</option>
+			<option>Options</option>
+		</select>
+		<label for="genre">Genre:</label>
+			<div id="checkboxCol1">
+				<input type="checkbox" name="genre" value="Rock">
+				<label class="genreSelect" for="Rock">Rock</label>
+				<br>
+				<input type="checkbox" name="genre" value="Pop">
+				<label class="genreSelect" for="Pop">Pop</label>
+				<br>
+				<input type="checkbox" name="genre" value="Blues">
+				<label class="genreSelect" for="Blues">Blues</label>
+			</div>
+			<div id="checkboxCol2">
+				<input type="checkbox" name="genre" value="Classical">
+				<label class="genreSelect" for="Classical">Classical</label>
+				<br>
+				<input type="checkbox" name="genre" value="Jazz">
+				<label class="genreSelect" for="Jazz">Jazz</label>
+				<br>
+				<input type="checkbox" name="genre" value="Hip-Hop">
+				<label class="genreSelect" for="Hip-Hop">Hip Hop</label>
+			</div>
+		<button id="btn-filter">Filter</button>
+	</aside>
+<!-- /Side Bar-->
+	</div>
+<!-- Master Wrapper-->
 </body>
 </html>
