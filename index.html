@@ -15,15 +15,15 @@
 	<header>
 		<nav>
 			<ul>
-				<li>View Music</li>
-				<li class="dividers">Add Music</li>
+				<li id="listMusic">List Music</li>
+				<li class="dividers" id="addMusic">Add Music</li>
 				<li>Profile</li>
 			</ul>
 		</nav>
 	</header>
 <!-- /Header -->
 <!-- Main Section-->
-	<section>
+	<section id="main-section">
 <!-- -->
 		<h2 id="song1">Song Name</h2>
 		<p>Artist Name</p>
@@ -51,7 +51,7 @@
 	</section>
 <!-- /Main Section-->
 <!-- Side Bar-->
-	<aside>
+	<aside id="main-aside">
 		<label for="songLength">Song Length:</label>
 		<input id="songLength" type="range">
 		<label for="artist">Artist:</label>
@@ -90,6 +90,25 @@
 		<button id="btn-filter">Filter</button>
 	</aside>
 <!-- /Side Bar-->
+<!-- Add Music View -->
+	<div id="addView" class="hidden">
+		<div id="addView-container">
+			<div id="addView-labels">
+				<label for="songName">Song Name:</label>
+				<label for="artist">Artist:</label>
+				<label for="albumn">Album:</label>
+			</div>
+			<div id="addView-inputs">
+				<input type="text" name="songName" id="inputSongName">
+				<input type="text" name="artist" id="inputSongArtist">
+				<input type="text" name="album" id="inputSongAlbum">
+
+			</div>
+			<button id="addMusicBtn">Add</button>
+
+		</div>
+	</div>
+<!-- /Add Music View -->
 	</div>
 <!-- Master Wrapper-->
 <!-- Java Stuff -->

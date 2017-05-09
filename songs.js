@@ -17,6 +17,7 @@ var song2 = document.getElementById("song2");
 var song3 = document.getElementById("song3");
 var song4 = document.getElementById("song4");
 
+
 for (n=0; n<songs.length; n+=1) {
 	songs[n]=songs[n].replace(/[@*!()]/gi, '');
 	songs[n]=songs[n].replace(/ > /gi, ' - ');
@@ -30,3 +31,33 @@ function populateList() {
 }
 
 populateList();
+
+
+var listMusic = document.getElementById("listMusic");
+var addMusic = document.getElementById("addMusic");
+var addView = document.getElementById("addView");
+var mainAside = document.getElementById("main-aside");
+var mainSection = document.getElementById("main-section");
+var addMusicBtn = document.getElementById("addMusicBtn");
+var inputSongName = document.getElementById("inputSongName");
+var inputSongArtist = document.getElementById("inputSongArtist");
+var inputSongAlbum = document.getElementById("inputSongAlbum");
+
+
+listMusic.addEventListener("click", (event) => {
+	mainAside.classList.remove("hidden");
+	mainSection.classList.remove("hidden");
+	addView.classList.add("hidden");
+})
+
+addMusic.addEventListener("click", (event) => {
+	mainAside.classList.add("hidden");
+	mainSection.classList.add("hidden");
+	addView.classList.remove("hidden");
+})
+
+addMusicBtn.addEventListener("click", (event) => {
+	var newSong = inputSongName.value+" by "+inputSongArtist.value+" on the Album "+inputSongAlbum.value;
+	songs.unshift(newSong);
+	populateList();
+})
