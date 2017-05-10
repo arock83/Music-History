@@ -38,6 +38,7 @@ section {
 	display: inline-block;
 	margin: 0;
 	padding: 1% 2.5%;
+	overflow: auto;
 }
 section p {
 	display: inline-block;

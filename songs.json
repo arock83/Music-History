@@ -1,0 +1,30 @@
+{
+	"song": [
+		{
+			"name":"Smile Like You Mean It",
+			"artist":"The Killers",
+			"album": "Hot Fuss",
+			"genre": "Rock"
+		},
+		{
+			"name":"Somebody That I Used to Know",
+			"artist":"Gofye",
+			"album": "Making Mirrors",
+			"genre": "Rock"
+		},
+		{
+			"name":"Everybody Talks",
+			"artist":"Neon Trees",
+			"album": "Picture Show",
+			"genre": "Rock"
+		},
+		{
+			"name":"Someday",
+			"artist":"The Strokes",
+			"album": "Is This It",
+			"genre": "Rock"
+		}
+		
+
+	]
+}
