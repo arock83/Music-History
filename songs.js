@@ -35,91 +35,152 @@ var songs2 = [];
 
 // populateList();
 
-var musicLoader = new XMLHttpRequest();
-var musicLoader2 = new XMLHttpRequest();
-var mainSection = document.getElementById("main-section");
+//Vanilla JS XHR Requests
 
-musicLoader.addEventListener("load", function (event) {
-	//console.log("parsed data", JSON.parse(this.responseText));
-	songs = JSON.parse(this.responseText).song;
-	populateList(songs);
-});
-musicLoader2.addEventListener("load", function (event) {
-	songs2 = JSON.parse(this.responseText).song;
+// var musicLoader = new XMLHttpRequest();
+// var musicLoader2 = new XMLHttpRequest();
+// var mainSection = document.getElementById("main-section");
 
-})
-musicLoader.addEventListener("error", () => {
-	console.log("there was an error loading songs.json");
-})
-musicLoader2.addEventListener("error", () => {
-	console.log("there was an error loading songs2.json");
-})
+// musicLoader.addEventListener("load", function (event) {
+// 	//console.log("parsed data", JSON.parse(this.responseText));
+// 	songs = JSON.parse(this.responseText).song;
+// 	populateList(songs);
+// });
+// musicLoader2.addEventListener("load", function (event) {
+// 	songs2 = JSON.parse(this.responseText).song;
 
-musicLoader.open("GET", "songs.json");
-musicLoader2.open("GET", "songs2.json");
-musicLoader.send();
-musicLoader2.send();
+// })
+// musicLoader.addEventListener("error", () => {
+// 	console.log("there was an error loading songs.json");
+// })
+// musicLoader2.addEventListener("error", () => {
+// 	console.log("there was an error loading songs2.json");
+// })
+
+// musicLoader.open("GET", "songs.json");
+// musicLoader2.open("GET", "songs2.json");
+// musicLoader.send();
+// musicLoader2.send();
+
+//AJAX Requests
+
+let musicLoader = () => {
+	$.ajax({
+		url: "songs.json",
+		success: function(data){
+			songs = data.song;
+			console.log(data);
+			populateList(songs);
+		}
+	});
+};
+musicLoader();
+
+let musicLoader2 = () => {
+	$.ajax({
+		url: "songs2.json",
+		success: function(data) {
+			songs2 = data.song;
+
+		}
+	});
+};
+musicLoader2();
 
 function populateList(array) {
-		mainSection.innerHTML = "";
+	$("#main-section").html("");
 	for (n=0; n<array.length;n+=1) {
-		mainSection.innerHTML += `<div id="song--${n}">
+		$("#main-section").append( `<div id="song--${n}">
 									<h2>`+array[n].name+`</h2>
 									<p>`+array[n].artist+`</p>
 									<p class="dividers">`+array[n].album+`</p>
 									<p>`+array[n].genre+`</p>
 									<button id="delete--${n}">Delete</button>
-								</div>`;
+								</div>`);
 	}
-	mainSection.innerHTML += `<button id="moreBtn">More ></button>`;
+	$("#main-section").append(`<button id="moreBtn">More ></button>`);
 	activateListeners(array);
-}
+};
 
 function activateListeners(array) {
 	for (let i=0;i<array.length;i+=1) {
-		let deleteBtn = document.getElementById(`delete--${i}`);
-		deleteBtn.addEventListener("click", function() {
+		$(`#delete--${i}`).on("click", function() {
 			console.log(array);
 			array.splice(i, 1);
 			console.log(array);
 			populateList(array);
-		})
-	}
-	var moreBtn = document.getElementById("moreBtn");
-	moreBtn.addEventListener("click", (event) => {
+		});
+	};
+	$("#moreBtn").on("click", (event) => {
 		console.log(event);
 		array = array.concat(songs2);
 		populateList(array);
-	})
-}
+	});
+};
+
+//Vanilla Event Listeners
+
+// function activateListeners(array) {
+// 	for (let i=0;i<array.length;i+=1) {
+// 		let deleteBtn = document.getElementById(`delete--${i}`);
+// 		deleteBtn.addEventListener("click", function() {
+// 			console.log(array);
+// 			array.splice(i, 1);
+// 			console.log(array);
+// 			populateList(array);
+// 		})
+// 	}
+// 	var moreBtn = document.getElementById("moreBtn");
+// 	moreBtn.addEventListener("click", (event) => {
+// 		console.log(event);
+// 		array = array.concat(songs2);
+// 		populateList(array);
+// 	})
+// }
+
+//Vanilla DOM selectors
+
+// var listMusic = document.getElementById("listMusic");
+// var addMusic = document.getElementById("addMusic");
+// var addView = document.getElementById("addView");
+// var mainAside = document.getElementById("main-aside");
+// var mainSection = document.getElementById("main-section");
+// var addMusicBtn = document.getElementById("addMusicBtn");
+// var inputSongName = document.getElementById("inputSongName");
+// var inputSongArtist = document.getElementById("inputSongArtist");
+// var inputSongAlbum = document.getElementById("inputSongAlbum");
 
 
-var listMusic = document.getElementById("listMusic");
-var addMusic = document.getElementById("addMusic");
-var addView = document.getElementById("addView");
-var mainAside = document.getElementById("main-aside");
-var mainSection = document.getElementById("main-section");
-var addMusicBtn = document.getElementById("addMusicBtn");
-var inputSongName = document.getElementById("inputSongName");
-var inputSongArtist = document.getElementById("inputSongArtist");
-var inputSongAlbum = document.getElementById("inputSongAlbum");
 
+$("#listMusic").click(function() {
+	console.log("click event fired.");
+	$("#main-aside").removeClass("hidden");
+	$("#main-section").removeClass("hidden");
+	$("#addView").addClass("hidden");
+});
 
+$("#addMusic").click((event) => {
+	$("#main-aside").addClass("hidden");
+	$("#main-section").addClass("hidden");
+	$("#addView").removeClass("hidden");
+});
 
-listMusic.addEventListener("click", (event) => {
-	mainAside.classList.remove("hidden");
-	mainSection.classList.remove("hidden");
-	addView.classList.add("hidden");
-})
-
-addMusic.addEventListener("click", (event) => {
-	mainAside.classList.add("hidden");
-	mainSection.classList.add("hidden");
-	addView.classList.remove("hidden");
-})
-
-addMusicBtn.addEventListener("click", (event) => {
-	var newSong = inputSongName.value+" by "+inputSongArtist.value+" on the Album "+inputSongAlbum.value;
+$("#addMusicBtn").on("click", () => {
+	var newSong={};
+	newSong.name = $("#inputSongName").val();
+	newSong.artist = $("#inputSongArtist").val();
+	newSong.album = $("#inputSongAlbum").val();
+	newSong.genre = $("#inputSongGenre").val();
 	songs.unshift(newSong);
-	populateList();
-})
+	populateList(songs);
+	$("#main-aside").removeClass("hidden");
+	$("#main-section").removeClass("hidden");
+	$("#addView").addClass("hidden");
+
+});
+
+// addMusicBtn.addEventListener("click", (event) => {
+// 	var newSong = inputSongName.value+" by "+inputSongArtist.value+" on the Album "+inputSongAlbum.value;
+// 	songs.unshift(newSong);
+// 	populateList();
+// })
